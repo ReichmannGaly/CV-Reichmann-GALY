@@ -81,29 +81,26 @@
 \defaultfontfeatures{
   Renderer=HarfBuzz,
 }
-\setmainfont{Source Sans 3}[
-  UprightFont=*,
-  ItalicFont=* Italic,
-  BoldFont=* Bold,
-  BoldItalicFont=* Bold Italic,
-  FontFace={l}{n}{Font=* Light},
-  FontFace={l}{it}{Font=* Light Italic},
+\setmainfont{SourceSans3-Regular.ttf}[
+  ItalicFont=SourceSans3-Italic.ttf,
+  BoldFont=SourceSans3-Bold.ttf,
+  BoldItalicFont=SourceSans3-BoldItalic.ttf,
+  FontFace={l}{n}{Font=SourceSans3-Light.ttf},
+  FontFace={l}{it}{Font=SourceSans3-LightItalic.ttf},
 ]
-\setsansfont{Source Sans 3}[
-  UprightFont=*,
-  ItalicFont=* Italic,
-  BoldFont=* Bold,
-  BoldItalicFont=* Bold Italic,
-  FontFace={l}{n}{Font=* Light},
-  FontFace={l}{it}{Font=* Light Italic},
+\setsansfont{SourceSans3-Regular.ttf}[
+  ItalicFont=SourceSans3-Italic.ttf,
+  BoldFont=SourceSans3-Bold.ttf,
+  BoldItalicFont=SourceSans3-BoldItalic.ttf,
+  FontFace={l}{n}{Font=SourceSans3-Light.ttf},
+  FontFace={l}{it}{Font=SourceSans3-LightItalic.ttf},
 ]
-\newfontfamily\roboto{Roboto}[
-  UprightFont=*,
-  ItalicFont=* Italic,
-  BoldFont=* Bold,
-  BoldItalicFont=* Bold Italic,
-  FontFace={l}{n}{Font=* Light},
-  FontFace={l}{it}{Font=* Light Italic},
+\newfontfamily\roboto{Roboto-Regular.ttf}[
+  ItalicFont=Roboto-Italic.ttf,
+  BoldFont=Roboto-Bold.ttf,
+  BoldItalicFont=Roboto-BoldItalic.ttf,
+  FontFace={l}{n}{Font=Roboto-Light.ttf},
+  FontFace={l}{it}{Font=Roboto-LightItalic.ttf},
 ]
 % Needed for the photo ID
 \RequirePackage[skins]{tcolorbox}
@@ -179,7 +176,7 @@
 
 % Boolean value to switch section color highlighting
 \newbool{acvSectionColorHighlight}
-\setbool{acvSectionColorHighlight}{true}
+\setbool{acvSectionColorHighlight}{false}
 
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
@@ -195,8 +192,8 @@
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
-\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{graytext} #1}}
-\newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfont\bfseries\color{text} #1}}
+\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{28pt}{1em}\headerfontlight\color{graytext} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{28pt}{1em}\headerfont\bfseries\color{text} #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{awesome} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
@@ -209,7 +206,7 @@
     \StrSplit{\@acvSectionTmp}{3}{\acvSectionStringAwesome}{\acvSectionStringPlain}%
       \color{awesome}\sectionstyleface{\acvSectionStringAwesome%
       \color{text}{\acvSectionStringPlain}}}%
-      {\color{text}\sectionstyleface{\@acvSectionTmp}}}
+      {\color{awesome}\sectionstyleface{\@acvSectionTmp}}}
 \newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
 \newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
 
@@ -352,8 +349,8 @@
 \newcommand*{\stackoverflow}[2]{\def\@stackoverflowid{#1}\def\@stackoverflowname{#2}}
 
 % Defines writer's linked-in (optional)
-% Usage: \linkedin{<linked-in-nick>}
-\newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
+% Usage: \linkedin{<linked-in-slug>}{<display-name>}
+\newcommand*{\linkedin}[2][]{\def\@linkedinslug{#2}\ifthenelse{\equal{#1}{}}{\def\@linkedin{#2}}{\def\@linkedin{#1}}}
 
 % Defines writer's orcid (optional)
 % Usage: \orcid{<orcid-num>}
@@ -599,7 +596,7 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.linkedin.com/in/\@linkedin}{\faAlt{LinkedIn: /in/\@linkedin}{\faLinkedin}{\@linkedin}}%
+          \href{https://www.linkedin.com/in/\@linkedinslug}{\faAlt{LinkedIn: /in/\@linkedinslug}{\faLinkedin}{\@linkedin}}%
         }%
       \ifthenelse{\isundefined{\@orcid}}%
         {}%
@@ -804,7 +801,7 @@
   \vspace{-2.0mm}
     \setlength\tabcolsep{1ex}
     \setlength{\extrarowheight}{0pt}
-    \tabularx{\textwidth}{r>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}X}
+    \tabularx{\textwidth}{l>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}X}
 }{%
 \endtabularx\par
 }
