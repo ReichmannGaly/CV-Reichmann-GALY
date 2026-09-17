@@ -7,17 +7,22 @@
 *.fls
 *.out
 *.toc
+*.fdb_latexmk
+*.synctex.gz
 
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
+
+## Output:
+*.pdf
+!resume.pdf
 
 ### Editor ###
 ## Vim & Emacs temp files:
 .*sw[op]
 *~
 
-### Mac OS X ###
-## Mac OS X metadata files:
+### OS ###
 *.DS_Store
-
+Thumbs.db

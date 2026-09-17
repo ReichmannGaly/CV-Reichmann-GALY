@@ -18,17 +18,22 @@
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[11pt, a4paper]{awesome-cv}
+\documentclass[10pt, a4paper]{awesome-cv}
 
 % Configure page margins with geometry
-\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=0.8cm, footskip=.4cm}
+
+% Reduce vertical spacing to fit on one page
+\renewcommand{\acvHeaderAfterSocialSkip}{2mm}
+\renewcommand{\acvSectionTopSkip}{1.5mm}
+\renewcommand{\acvSectionContentTopSkip}{1mm}
 
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
-%                 awesome-nephritis, awesome-concrete, awesome-darknight
-\colorlet{awesome}{awesome-red}
-% Uncomment if you would like to specify your own color
-% \definecolor{awesome}{HTML}{CA63A8}
+%                 awesome-nephritis, awesome-concrete, awesome-darknight, awesome-navy
+% \colorlet{awesome}{awesome-red}
+% Custom professional navy blue for engineer CV
+\definecolor{awesome}{HTML}{1F3864}
 
 % Colors for text
 % Uncomment if you would like to specify your own color
@@ -39,7 +44,7 @@
 % \definecolor{sectiondivider}{HTML}{5D5D5D}
 
 % Set false if you don't want to highlight section with awesome color
-\setbool{acvSectionColorHighlight}{true}
+\setbool{acvSectionColorHighlight}{false}
 
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
@@ -50,25 +55,25 @@
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
-% \photo{./examples/profile.png}
-\name{Claud D.}{Park}
-\position{DevOps Engineer{\enskip\cdotp\enskip}Software Architect}
-\address{Mapo-gu, Seoul, Republic of Korea}
+% \photo[rectangle,edge,right]{./examples/profile}
+\name{Jean Koletto Reichmann}{GALY}
+\position{Backend Developer{\enskip\cdotp\enskip}Data Engineer}
+\address{Saint-Pierre, Reunion, France}
 
-\mobile{(+82) 10-9030-1843}
+\mobile{(+262) 693 50 18 66}
 %\whatsapp{(+82) 10-9030-1843}
-\email{posquit0.bj@gmail.com}
+\email{reichmann.galy@esiroi.re}
 %\dateofbirth{January 1st, 1970}
-\homepage{www.posquit0.com}
-\github{posquit0}
-\linkedin{posquit0}
+%\homepage{www.posquit0.com}
+\github{ReichmannGaly}
+\linkedin[Jean Koletto Reichmann GALY]{jean-koletto-reichmann-galy}
 % \gitlab{gitlab-id}
 % \stackoverflow{SO-id}{SO-name}
 % \twitter{@twit}
 % \x{x-id}
 % \skype{skype-id}
 % \reddit{reddit-id}
-% \medium{medium-id}
+% \medium{madium-id}
 % \kaggle{kaggle-id}
 % \hackerrank{hackerrank-id}
 % \telegram{telegram-username}
@@ -77,7 +82,7 @@
 % \googlescholar{googlescholar-id}{}
 % \extrainfo{extra information}
 
-\quote{``Be the change that you want to see in the world."}
+%\quote{``Be the change that you want to see in the world."}
 
 
 %-------------------------------------------------------------------------------
@@ -85,30 +90,37 @@
 
 % Print the header with above personal information
 % Give optional argument to change alignment(C: center, L: left, R: right)
-\makecvheader
+\makecvheader[C]
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
-\makecvfooter
-  {\today}
-  {Claud D. Park~~~·~~~Curriculum Vitae}
-  {\thepage}
+%\makecvfooter
+%  {\today}
+%  {Jean Koletto Reichmann GALY}
+%  {\thepage}
 
 
 %-------------------------------------------------------------------------------
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-\input{cv/education.tex}
-\input{cv/skills.tex}
-\input{cv/experience.tex}
-\input{cv/extracurricular.tex}
-\input{cv/honors.tex}
-\input{cv/certificates.tex}
-\input{cv/presentation.tex}
-\input{cv/writing.tex}
-\input{cv/committees.tex}
+\input{resume/education.tex}
+\input{resume/skills.tex}
+\input{resume/projects.tex}
+\input{resume/experience.tex}
+\input{resume/certificates.tex}
+\input{resume/languages.tex}
+\input{resume/interests.tex}
+%\input{resume/extracurricular.tex}
+%\input{resume/honors.tex}
+% \input{resume/presentation.tex}
+% \input{resume/writing.tex}
+% \input{resume/committees.tex}
 
+
+
+\vfill
+\center{\color{graytext}\small References available upon request}
 
 %-------------------------------------------------------------------------------
 \end{document}
